@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("theme-toggle");
 
   let searchQuery = "";
+  let isInitialRender = true;
 
   // Theme Management
   const savedTheme = localStorage.getItem("portfolio-theme");
@@ -71,9 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
       .map((item, idx) => {
         const numStr = String(idx + 1).padStart(2, "0");
         const classBadge = getClassModifier(item.grade);
+        const animClass = isInitialRender ? " animate-in" : "";
+        const delayMs = 240 + Math.min(idx, 14) * 40;
+        const animStyle = isInitialRender ? ` style="--stagger-delay: ${delayMs}ms"` : "";
 
         return `
-          <div class="work-item-row">
+          <div class="work-item-row${animClass}"${animStyle}>
             <div class="item-left">
               <span class="item-num">${numStr}</span>
               <span class="student-name">${escapeHtml(item.name)}</span>
@@ -90,6 +94,17 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       })
       .join("");
+
+    if (isInitialRender) {
+      worksContainer.querySelectorAll(".work-item-row.animate-in").forEach((row) => {
+        row.addEventListener("animationend", () => {
+          row.classList.remove("animate-in");
+          row.style.removeProperty("--stagger-delay");
+        }, { once: true });
+      });
+    }
+
+    isInitialRender = false;
   }
 
   function escapeHtml(str) {
