@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karya Game & Aplikasi Siswa ✨</title>
+
+  <!-- Cute, Rounded & Playful Fonts: Fredoka & Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+  <div class="screen-wrapper">
+
+    <!-- Top Header -->
+    <header class="main-header">
+      <div class="header-left">
+        <div class="cute-tag">
+          <span class="tag-emoji">🎮</span>
+          <span>STUDENT CREATIVE CORNER</span>
+        </div>
+        <h1 class="brand-title">Karya <span>Game & Aplikasi</span> ✨</h1>
+      </div>
+
+      <div class="header-right">
+        <!-- Cute Search Box -->
+        <div class="search-wrap">
+          <span class="search-emoji">🔍</span>
+          <input type="text" id="search-input" placeholder="Cari nama / kelas..." autocomplete="off">
+        </div>
+
+        <!-- Dark/Light Theme Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Ganti Tema">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-text">Mode Malam</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Sub-bar: Cute Meta Strip -->
+    <div class="meta-strip">
+      <div class="meta-left">
+        <span class="star-icon">⭐</span>
+        <span>DAFTAR KARYA SERU</span>
+      </div>
+      <span class="meta-badge" id="count-display">15 karya</span>
+    </div>
+
+    <!-- Main Grid: 2 Kolom di Desktop (Fit 1 Layar), 1 Kolom di Mobile -->
+    <main class="works-grid" id="works-container">
+      <!-- Rendered by app.js -->
+    </main>
+
+    <!-- Cute Bottom Footer -->
+    <footer class="bottom-footer">
+      <span>Dibuat dengan semangat oleh siswa • Klik "Buka" buat cobain 🕹️</span>
+    </footer>
+
+  </div>
+
+  <script src="data.js?v=2"></script>
+  <script src="app.js?v=2"></script>
+</body>
+
+</html>
